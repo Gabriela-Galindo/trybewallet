@@ -7,7 +7,6 @@ class WalletForm extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(APIcurrencies());
-    console.log('deu certo');
   }
 
   currencyOptions = () => {
@@ -73,6 +72,12 @@ class WalletForm extends Component {
               <option value="Saúde">Saúde</option>
             </select>
           </label>
+          <button
+            type="submit"
+          >
+            Adicionar despesa
+
+          </button>
         </form>
       </div>
     );
