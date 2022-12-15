@@ -18,3 +18,16 @@ export const APIcurrencies = () => async (dispatch) => {
   const currencyList = Object.keys(data).filter((currency) => currency !== 'USDT');
   dispatch(fetchAPI(currencyList));
 };
+
+export const SAVE_EXPENSES = 'SAVE_EXPENSES';
+
+export const saveExpenses = (param) => ({
+  type: SAVE_EXPENSES,
+  payload: param,
+});
+
+export const apiExchangeRates = () => async () => {
+  const result = await fetch('https://economia.awesomeapi.com.br/json/all');
+  const data = await result.json();
+  return data;
+};
