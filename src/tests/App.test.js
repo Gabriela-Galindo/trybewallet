@@ -77,4 +77,28 @@ describe('Testa se o componente Wallet é renderizado corretamente', () => {
     const buttonExpense = screen.getByRole('button', { name: /adicionar despesa/i });
     expect(buttonExpense).toBeInTheDocument();
   });
+  it('Verifica se existe uma tabela para detalhar as despesas', () => {
+    renderWithRedux(<Wallet />);
+    const tableHeading = screen.getByText(/tabela/i);
+    const descriptionHeader = screen.getByRole('columnheader', { name: /descrição/i });
+    const tagHeader = screen.getByRole('columnheader', { name: /tag/i });
+    const methodHeader = screen.getByRole('columnheader', { name: /método de pagamento/i });
+
+    expect(tableHeading).toBeInTheDocument();
+    expect(descriptionHeader).toBeInTheDocument();
+    expect(tagHeader).toBeInTheDocument();
+    expect(methodHeader).toBeInTheDocument();
+  });
+  it('Verifica se, ao clicar no botão "Adicionar despesa", é gerada uma tabela com as informações dos inputs', async () => {
+    renderWithRedux(<Wallet />);
+
+    const descriptionInput = screen.getByTestId('description-input');
+    userEvent.type(descriptionInput, 'livros');
+
+    const buttonExpense = screen.getByRole('button', { name: /adicionar despesa/i });
+    userEvent.click(buttonExpense);
+
+    const expenseDescription = await screen.findByRole('cell', { name: /livros/i });
+    expect(expenseDescription).toBeInTheDocument();
+  });
 });
