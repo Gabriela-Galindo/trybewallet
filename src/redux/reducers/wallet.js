@@ -1,4 +1,4 @@
-import { FETCH_API, SAVE_EXPENSES } from '../actions';
+import { FETCH_API, SAVE_EXPENSES, DELETE_EXPENSES, UPDATE_TOTAL } from '../actions';
 
 const INITIAL_STATE = {
   currencies: [], // array de string
@@ -23,6 +23,21 @@ const wallet = (state = INITIAL_STATE, action) => {
       total: state.total
       + (action.payload.value
         * +action.payload.exchangeRates[action.payload.currency].ask),
+    };
+  }
+  case DELETE_EXPENSES: {
+    return {
+      ...state,
+      expenses: state.expenses
+        .filter((expense) => expense.description !== action.payload),
+    };
+  }
+  case UPDATE_TOTAL: {
+    return {
+      ...state,
+      total: state.expenses
+        .reduce((acumulador, valorAtual) => acumulador + (valorAtual.value
+          * valorAtual.exchangeRates[valorAtual.currency].ask), 0),
     };
   }
   default:

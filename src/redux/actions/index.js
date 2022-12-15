@@ -31,3 +31,16 @@ export const apiExchangeRates = () => async () => {
   const data = await result.json();
   return data;
 };
+
+export const DELETE_EXPENSES = 'DELETE_EXPENSES';
+
+export const deleteExpenses = (param) => ({
+  type: DELETE_EXPENSES,
+  payload: param,
+});
+
+export const UPDATE_TOTAL = 'UPDATE_TOTAL';
+
+export const updateTotal = () => ({
+  type: UPDATE_TOTAL,
+});
