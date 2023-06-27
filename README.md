@@ -1,13 +1,10 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# Trybewallet - Aplicação de carteira online
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+### Projeto realizado durante o curso da Trybe, módulo de Front-end, seção sobre Gereciamento de Estado com Redux.
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+### A aplicação consiste em uma carteira de controle de gastos com conversor de moedas, onde será possível para o usuário:
+- Adicionar, remover e editar um gasto;
+- Visualizar uma tabelas com seus gastos;
+- Visualizar o total de gastos convertidos para uma moeda de escolha;
+
+### Para desenvolver essa aplicação foi utilizado o React com Redux, através da criação de actions, reducers e da store, além de ações assícronas para o consumo da API de moedas estrangeiras.
